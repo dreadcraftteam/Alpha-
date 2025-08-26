@@ -26,8 +26,8 @@ public abstract class BlockFluid extends Block {
 		return f1;
 	}
 
-	public int getBlockTextureFromSide(int i1) {
-		return i1 != 0 && i1 != 1 ? this.blockIndexInTexture + 1 : this.blockIndexInTexture;
+	public int getBlockTextureFromSide(int side) {
+		return side != 0 && side != 1 ? this.blockIndexInTexture + 1 : this.blockIndexInTexture;
 	}
 
 	protected int getFlowDecay(World worldObj, int x, int y, int z) {
@@ -55,16 +55,16 @@ public abstract class BlockFluid extends Block {
 		return false;
 	}
 
-	public boolean canCollideCheck(int i1, boolean z2) {
-		return z2 && i1 == 0;
+	public boolean canCollideCheck(int metadata, boolean z2) {
+		return z2 && metadata == 0;
 	}
 
-	public boolean shouldSideBeRendered(IBlockAccess iBlockAccess1, int i2, int i3, int i4, int i5) {
-		Material material6 = iBlockAccess1.getBlockMaterial(i2, i3, i4);
-		return material6 == this.material ? false : (material6 == Material.ice ? false : (i5 == 1 ? true : super.shouldSideBeRendered(iBlockAccess1, i2, i3, i4, i5)));
+	public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side) {
+		Material material6 = blockAccess.getBlockMaterial(x, y, z);
+		return material6 == this.material ? false : (material6 == Material.ice ? false : (side == 1 ? true : super.shouldSideBeRendered(blockAccess, x, y, z, side)));
 	}
 
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world1, int i2, int i3, int i4) {
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World worldObj, int x, int y, int z) {
 		return null;
 	}
 
@@ -72,11 +72,11 @@ public abstract class BlockFluid extends Block {
 		return 4;
 	}
 
-	public int idDropped(int i1, Random random2) {
+	public int idDropped(int metadata, Random rand) {
 		return 0;
 	}
 
-	public int quantityDropped(Random random1) {
+	public int quantityDropped(Random rand) {
 		return 0;
 	}
 
@@ -162,11 +162,11 @@ public abstract class BlockFluid extends Block {
 		return vec3D5;
 	}
 
-	public void velocityToAddToEntity(World world1, int i2, int i3, int i4, Entity entity5, Vec3D vec3D6) {
-		Vec3D vec3D7 = this.getFlowVector(world1, i2, i3, i4);
-		vec3D6.xCoord += vec3D7.xCoord;
-		vec3D6.yCoord += vec3D7.yCoord;
-		vec3D6.zCoord += vec3D7.zCoord;
+	public void velocityToAddToEntity(World worldObj, int x, int y, int z, Entity entity, Vec3D velocityVector) {
+		Vec3D vec3D7 = this.getFlowVector(worldObj, x, y, z);
+		velocityVector.xCoord += vec3D7.xCoord;
+		velocityVector.yCoord += vec3D7.yCoord;
+		velocityVector.zCoord += vec3D7.zCoord;
 	}
 
 	public int tickRate() {
@@ -179,27 +179,27 @@ public abstract class BlockFluid extends Block {
 		return f5 > f6 ? f5 : f6;
 	}
 
-	public void updateTick(World world1, int i2, int i3, int i4, Random random5) {
-		super.updateTick(world1, i2, i3, i4, random5);
+	public void updateTick(World worldObj, int x, int y, int z, Random rand) {
+		super.updateTick(worldObj, x, y, z, rand);
 	}
 
 	public int getRenderBlockPass() {
 		return this.material == Material.water ? 1 : 0;
 	}
 
-	public void randomDisplayTick(World world1, int i2, int i3, int i4, Random random5) {
-		if(this.material == Material.water && random5.nextInt(64) == 0) {
-			int i6 = world1.getBlockMetadata(i2, i3, i4);
+	public void randomDisplayTick(World worldObj, int x, int y, int z, Random rand) {
+		if(this.material == Material.water && rand.nextInt(64) == 0) {
+			int i6 = worldObj.getBlockMetadata(x, y, z);
 			if(i6 > 0 && i6 < 8) {
-				world1.playSoundEffect((double)((float)i2 + 0.5F), (double)((float)i3 + 0.5F), (double)((float)i4 + 0.5F), "liquid.water", random5.nextFloat() * 0.25F + 0.75F, random5.nextFloat() * 1.0F + 0.5F);
+				worldObj.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), "liquid.water", rand.nextFloat() * 0.25F + 0.75F, rand.nextFloat() * 1.0F + 0.5F);
 			}
 		}
 
-		if(this.material == Material.lava && world1.getBlockMaterial(i2, i3 + 1, i4) == Material.air && !world1.isBlockNormalCube(i2, i3 + 1, i4) && random5.nextInt(100) == 0) {
-			double d12 = (double)((float)i2 + random5.nextFloat());
-			double d8 = (double)i3 + this.maxY;
-			double d10 = (double)((float)i4 + random5.nextFloat());
-			world1.spawnParticle("lava", d12, d8, d10, 0.0D, 0.0D, 0.0D);
+		if(this.material == Material.lava && worldObj.getBlockMaterial(x, y + 1, z) == Material.air && !worldObj.isBlockNormalCube(x, y + 1, z) && rand.nextInt(100) == 0) {
+			double d12 = (double)((float)x + rand.nextFloat());
+			double d8 = (double)y + this.maxY;
+			double d10 = (double)((float)z + rand.nextFloat());
+			worldObj.spawnParticle("lava", d12, d8, d10, 0.0D, 0.0D, 0.0D);
 		}
 
 	}
@@ -217,12 +217,12 @@ public abstract class BlockFluid extends Block {
 		return vec3D5.xCoord == 0.0D && vec3D5.zCoord == 0.0D ? -1000.0D : Math.atan2(vec3D5.zCoord, vec3D5.xCoord) - Math.PI / 2D;
 	}
 
-	public void onBlockAdded(World world1, int i2, int i3, int i4) {
-		this.checkForHarden(world1, i2, i3, i4);
+	public void onBlockAdded(World worldObj, int x, int y, int z) {
+		this.checkForHarden(worldObj, x, y, z);
 	}
 
-	public void onNeighborBlockChange(World world1, int i2, int i3, int i4, int i5) {
-		this.checkForHarden(world1, i2, i3, i4);
+	public void onNeighborBlockChange(World worldObj, int x, int y, int z, int id) {
+		this.checkForHarden(worldObj, x, y, z);
 	}
 
 	private void checkForHarden(World world1, int i2, int i3, int i4) {

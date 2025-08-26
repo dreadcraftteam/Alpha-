@@ -19,10 +19,10 @@ public class EntityPlayer extends EntityLiving {
 		this.setLocationAndAngles((double)world1.spawnX + 0.5D, (double)(world1.spawnY + 1), (double)world1.spawnZ + 0.5D, 0.0F, 0.0F);
 		this.health = 20;
 		this.entityType = "humanoid";
-		this.unusedRotation = 180.0F;
+		this.unusedRotation = 0.0F;
 		this.fireResistance = 20;
 		this.texture = "/char.png";
-		this.inventory.addItemStackToInventory(new ItemStack(Block.grass, 64));
+		this.inventory.addItemStackToInventory(new ItemStack(Block.sponge, 64));
 	}
 
 	public void updateRidden() {
