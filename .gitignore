@@ -1,0 +1,20 @@
+# Ignore this! NOW!
+
+# Compiler stuff 
+/temp/src/*
+/logs/*
+/workspace/*
+/bin/
+/reobf/*
+/build/
+
+# Game stuff 
+/jars/resources/*
+/jars/saves/*
+/jars/options.txt
+/jars/banned-ips.txt
+/jars/banned-players.txt
+/jars/ops.txt
+/jars/server.log
+/jars/server.properties
+/jars/world/
