@@ -141,7 +141,7 @@ public class GuiIngame extends Gui {
 		GL11.glDisable(GL12.GL_RESCALE_NORMAL);
 		String string21;
 		if(this.mc.options.d) {
-			fontRenderer8.drawStringWithShadow("Minecraft Alpha v1.1.0 (" + this.mc.debug + ")", 2, 2, 0xFFFFFF);
+			fontRenderer8.drawStringWithShadow("Minecraft Alpha+ v1.0.0 (" + this.mc.debug + ")", 2, 2, 0xFFFFFF);
 			fontRenderer8.drawStringWithShadow(this.mc.debugInfoRenders(), 2, 12, 0xFFFFFF);
 			fontRenderer8.drawStringWithShadow(this.mc.getEntityDebug(), 2, 22, 0xFFFFFF);
 			fontRenderer8.drawStringWithShadow(this.mc.debugInfoEntities(), 2, 32, 0xFFFFFF);
@@ -154,7 +154,7 @@ public class GuiIngame extends Gui {
 			string21 = "Allocated memory: " + j27 * 100L / j22 + "% (" + j27 / 1024L / 1024L + "MB)";
 			this.drawString(fontRenderer8, string21, i6 - fontRenderer8.getStringWidth(string21) - 2, 12, 14737632);
 		} else {
-			fontRenderer8.drawStringWithShadow("Minecraft Alpha v1.1.0", 2, 2, 0xFFFFFF);
+			fontRenderer8.drawStringWithShadow("Minecraft Alpha+ v1.0.0", 2, 2, 0xFFFFFF);
 		}
 
 		if(this.recordPlayingUpFor > 0) {
