@@ -22,6 +22,7 @@ public class EntityPlayer extends EntityLiving {
 		this.unusedRotation = 180.0F;
 		this.fireResistance = 20;
 		this.texture = "/char.png";
+		this.inventory.addItemStackToInventory(new ItemStack(Block.grass, 64));
 	}
 
 	public void updateRidden() {

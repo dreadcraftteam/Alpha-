@@ -63,7 +63,7 @@ net/minecraft/src/BlockButton 6973104511b24ea8bd995a51968f972c
 net/minecraft/src/BlockGrass 3b27f3c7a0a3417b379a58b90c882232
 net/minecraft/src/CanvasMojangLogo 3829bf11220ab270e100cbcea8454d70
 net/minecraft/src/BlockTorch c403953e79122bf99c4e451ed6a13b64
-net/minecraft/src/GameSettings 5d5583b60ca0d86234c6653ce889ad26
+net/minecraft/src/GameSettings a54019d6bd6eea47412ad21ece54e82b
 net/minecraft/src/WorldGenCactus b60a4370ad7a7d7b3f121bc4844e4752
 net/minecraft/src/Packet32EntityLook d69b01cd487ad8b228d1ac0220bc2eb5
 net/minecraft/src/EntityFlameFX 17f33cf2d50bdcd7cbccb1577f597444
