@@ -294,7 +294,7 @@ net/minecraft/src/EntitySlimeFX 2ea563e1299f7736ae60e8f3a8579b0c
 net/minecraft/src/RenderChicken 2d1713de905b20332cba82a7f9b9b8c8
 net/minecraft/src/EntityPickupFX 95579b17f3276d0776c7ea55f33ccfb1
 net/minecraft/src/BlockSponge df245b25fb88628f80f899a85380adea
-net/minecraft/src/GuiMainMenu 08357276604aac61e2f899e447a9a41a
+net/minecraft/src/GuiMainMenu 5cadd4b4b9e4725ab71d4c4780abe918
 net/minecraft/src/CompressedStreamTools 8d1f51ee3f318eb0500be1de5dccef5b
 net/minecraft/src/MovementInput d93479b59e2b160a8c0635013d04f4a6
 net/minecraft/src/ItemSword 74cea901ecb1878b92266b78a788adb6

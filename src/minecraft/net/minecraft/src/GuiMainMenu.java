@@ -13,6 +13,7 @@ import org.lwjgl.util.glu.GLU;
 public class GuiMainMenu extends GuiScreen {
 	private static final Random rand = new Random();
 	String[] logoBlockLayers = new String[]{" *   * * *   * *** *** *** *** *** ***", " ** ** * **  * *   *   * * * * *    * ", " * * * * * * * **  *   **  *** **   * ", " *   * * *  ** *   *   * * * * *    * ", " *   * * *   * *** *** * * * * *    * "};
+	String[] SecondlogoBlockLayers = new String[]{"*** *   *** * * ***   *  ", "* * *   * * * * * *   *  ", "*** *   *** *** *** *****", "* * *   *   * * * *   *  ", "* * *** *   * * * *   *  "};
 	private LogoEffectRandomizer[][] logoEffects;
 	private float updateCounter = 0.0F;
 	private String splashString = "";
@@ -96,6 +97,7 @@ public class GuiMainMenu extends GuiScreen {
 		this.drawDefaultBackground();
 		Tessellator tessellator4 = Tessellator.instance;
 		this.drawLogo(f3);
+		this.drawSecondLogo(f3);
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D, this.mc.renderEngine.getTexture("/gui/logo.png"));
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		tessellator4.setColorOpaque_I(0xFFFFFF);
@@ -188,6 +190,101 @@ public class GuiMainMenu extends GuiScreen {
 						GL11.glScalef(f11, f11, f11);
 						GL11.glRotatef(f13, 0.0F, 1.0F, 0.0F);
 						renderBlocks5.renderBlockAsItem(Block.stone, f12);
+						GL11.glPopMatrix();
+					}
+				}
+			}
+
+			GL11.glPopMatrix();
+		}
+
+		GL11.glDisable(GL11.GL_BLEND);
+		GL11.glMatrixMode(GL11.GL_PROJECTION);
+		GL11.glPopMatrix();
+		GL11.glMatrixMode(GL11.GL_MODELVIEW);
+		GL11.glPopMatrix();
+		GL11.glViewport(0, 0, this.mc.displayWidth, this.mc.displayHeight);
+		GL11.glEnable(GL11.GL_CULL_FACE);
+	}
+
+		private void drawSecondLogo(float f1) {
+		int i2;
+		if(this.logoEffects == null) {
+			this.logoEffects = new LogoEffectRandomizer[this.SecondlogoBlockLayers[0].length()][this.SecondlogoBlockLayers.length];
+
+			for(int i3 = 0; i3 < this.logoEffects.length; ++i3) {
+				for(i2 = 0; i2 < this.logoEffects[i3].length; ++i2) {
+					this.logoEffects[i3][i2] = new LogoEffectRandomizer(this, i3, i2);
+				}
+			}
+		}
+
+		GL11.glMatrixMode(GL11.GL_PROJECTION);
+		GL11.glPushMatrix();
+		GL11.glLoadIdentity();
+		ScaledResolution scaledResolution14 = new ScaledResolution(this.mc.displayWidth, this.mc.displayHeight);
+		i2 = 120 * scaledResolution14.scaleFactor;
+		GLU.gluPerspective(70.0F, (float)this.mc.displayWidth / (float)i2, 0.05F, 100.0F);
+		GL11.glViewport(0, this.mc.displayHeight - i2, this.mc.displayWidth, i2);
+		GL11.glMatrixMode(GL11.GL_MODELVIEW);
+		GL11.glPushMatrix();
+		GL11.glLoadIdentity();
+		GL11.glDisable(GL11.GL_CULL_FACE);
+		GL11.glCullFace(GL11.GL_BACK);
+		GL11.glDepthMask(true);
+
+		for(int i4 = 0; i4 < 3; ++i4) {
+			GL11.glPushMatrix();
+			GL11.glTranslatef(0.6F, 0.6F, -23.0F);
+			if(i4 == 0) {
+				GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
+				GL11.glTranslatef(0.0F, -0.4F, 0.0F);
+				GL11.glScalef(0.98F, 1.0F, 1.0F);
+				GL11.glEnable(GL11.GL_BLEND);
+				GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+			}
+
+			if(i4 == 1) {
+				GL11.glDisable(GL11.GL_BLEND);
+				GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
+			}
+
+			if(i4 == 2) {
+				GL11.glEnable(GL11.GL_BLEND);
+				GL11.glBlendFunc(GL11.GL_SRC_COLOR, GL11.GL_ONE);
+			}
+
+			GL11.glScalef(1.0F, -1.0F, 1.0F);
+			GL11.glRotatef(15.0F, 1.0F, 0.0F, 0.0F);
+			GL11.glScalef(0.89F, 1.0F, 0.4F);
+			GL11.glTranslatef((float)(-this.SecondlogoBlockLayers[0].length()) * 0.5F, (float)(-this.SecondlogoBlockLayers.length) * -1.1F, 0.0F);
+			GL11.glBindTexture(GL11.GL_TEXTURE_2D, this.mc.renderEngine.getTexture("/terrain.png"));
+			if(i4 == 0) {
+				GL11.glBindTexture(GL11.GL_TEXTURE_2D, this.mc.renderEngine.getTexture("/title/black.png"));
+			}
+
+			RenderBlocks renderBlocks5 = new RenderBlocks();
+
+			for(int i6 = 0; i6 < this.SecondlogoBlockLayers.length; ++i6) {
+				for(int i7 = 0; i7 < this.SecondlogoBlockLayers[i6].length(); ++i7) {
+					char c8 = this.SecondlogoBlockLayers[i6].charAt(i7);
+					if(c8 != 32) {
+						GL11.glPushMatrix();
+						LogoEffectRandomizer logoEffectRandomizer9 = this.logoEffects[i7][i6];
+						float f10 = (float)(logoEffectRandomizer9.prevHeight + (logoEffectRandomizer9.height - logoEffectRandomizer9.prevHeight) * (double)f1);
+						float f11 = 1.0F;
+						float f12 = 1.0F;
+						float f13 = 0.0F;
+						if(i4 == 0) {
+							f11 = f10 * 0.04F + 1.0F;
+							f12 = 1.0F / f11;
+							f10 = 0.0F;
+						}
+
+						GL11.glTranslatef((float)i7, (float)i6, f10);
+						GL11.glScalef(f11, f11, f11);
+						GL11.glRotatef(f13, 0.0F, 1.0F, 0.0F);
+						renderBlocks5.renderBlockAsItem(Block.planks, f12);
 						GL11.glPopMatrix();
 					}
 				}
