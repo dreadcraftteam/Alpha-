@@ -44,7 +44,7 @@ net/minecraft/src/ModelCreeper 8bbc1a72e17c93d9bd6085aecaa28f04
 net/minecraft/src/RenderSnowball 4a7a3f91d8ba3ad6ab7582aaf2bf8193
 net/minecraft/src/BlockRedstoneOre 3e7d69bfa8e3c9990dc480ae7a118440
 net/minecraft/src/ItemSpade ebba80359671be23ba120908858aed22
-net/minecraft/src/ItemSign bbccf3b7720bf9801bbfee8bae6f4db1
+net/minecraft/src/ItemSign 4bfc3bc3a0484c56a2e3762fea57c97c
 net/minecraft/src/ImageBufferDownload db338e0aa10699603f61b216f86681f2
 net/minecraft/src/IWorldAccess faef8acc6ef482eccc217859c114d8bb
 net/minecraft/src/EntitySlime ba76785ea5089b7ec646a1cc70cd96f2
@@ -106,7 +106,7 @@ net/minecraft/src/EntityMob 7009a3b74c22666c7a0db122369d7990
 net/minecraft/src/ItemSaddle 4eb27f3b393c1c0d9ed2af730fec707a
 net/minecraft/src/Packet12PlayerLook a46043d006ac875b6eb500aaedf2a82e
 net/minecraft/src/ItemBlock bf5140e471225e21c276b0cf96e2aa08
-net/minecraft/src/SignModel 9968fa7507316a6c91ca52e74da4782b
+net/minecraft/src/SignModel 86dc70ab2480b7b3084bad628b1c25e3
 net/minecraft/src/KeyBinding 4d8509e13f823df62b66def428f5d80e
 net/minecraft/src/ModelZombie 4bebd4ca86efe3b8cea8ef2665a903b5
 net/minecraft/src/GuiIngame ba6e61ebcff8b5259985bd4e7ac2322a
@@ -387,11 +387,11 @@ net/minecraft/src/GuiScreen 16c0623e9eee5eec06c631244b293e0d
 net/minecraft/src/GuiCrafting a20089082bec2120cc954dadf435b56e
 net/minecraft/src/Entity 6ae9eec5f04f82e437e0c09889d8d208
 net/minecraft/src/TextureLavaFX c940e95669f64395f04e7507e18f0aed
-net/minecraft/src/BlockSign d68ad71425661f16de7fee94f741f136
+net/minecraft/src/BlockSign e6b6cdd18daf9a9ad794bddc3a07dad8
 net/minecraft/src/Packet10Flying 110b45879f8383a37884c37a4a154484
 net/minecraft/src/PathPoint 06f3b3d7b5d814bc18777867d3585c2f
 net/minecraft/src/EntityAnimal 075982a1e9dedd527a2335fcf6eb599d
-net/minecraft/src/GuiEditSign bd1be86fd18c8d25cf7842d6a817046b
+net/minecraft/src/GuiEditSign 1e6fc4ce59dcb8c947727964fb40860c
 net/minecraft/src/NoiseGenerator 6d2bf3399aaf20f9ffa2882f610bc474
 net/minecraft/src/ChatLine ef5b623999f13dc90187a55b32e1fed6
 net/minecraft/src/ChunkProviderIso be524749d117092b352592f74d7f781c
@@ -402,4 +402,4 @@ net/minecraft/src/BlockOre 1c8a201d113a73c9f74a7d196c25dc65
 net/minecraft/src/MinecraftError f9a8a0018501856f621a191504edc041
 net/minecraft/src/RecipesTools 226b3291ad3103c49f00effd91b19cb4
 net/minecraft/src/MaterialLogic b8689ee40c2ee256adc72280222aa3aa
-net/minecraft/src/TileEntitySignRenderer 59436c0b40034df47b9f6b6293752b1e
+net/minecraft/src/TileEntitySignRenderer 3bf73623e735e0243a35425305bd967d

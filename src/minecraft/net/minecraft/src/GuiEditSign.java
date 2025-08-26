@@ -62,7 +62,7 @@ public class GuiEditSign extends GuiScreen {
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float)(this.width / 2), (float)(this.height / 2), 50.0F);
 		float f4 = 93.75F;
-		GL11.glScalef(-f4, -f4, -f4);
+		GL11.glScalef(-60.0F, -60.0F, -60.0F);
 		GL11.glRotatef(180.0F, 0.0F, 1.0F, 0.0F);
 		Block block5 = this.entitySign.getBlockType();
 		if(block5 == Block.signStanding) {

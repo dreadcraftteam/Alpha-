@@ -13,7 +13,7 @@ public class BlockSign extends BlockContainer {
 		this.signEntityClass = signEntityClass;
 		float f4 = 0.25F;
 		float f5 = 1.0F;
-		this.setBlockBounds(0.5F - f4, 0.0F, 0.5F - f4, 0.5F + f4, f5, 0.5F + f4);
+		this.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 1.625F, 0.75F);
 	}
 
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world1, int i2, int i3, int i4) {
