@@ -22,7 +22,24 @@ public class EntityPlayer extends EntityLiving {
 		this.unusedRotation = 0.0F;
 		this.fireResistance = 20;
 		this.texture = "/char.png";
-		this.inventory.addItemStackToInventory(new ItemStack(Block.sponge, 64));
+
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothRed, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothOrange, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothYellow, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothChartreuse, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothGreen, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothSpringGreen, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothCyan, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothCapri, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothUltramarine, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothViolet, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothPurple, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothMagenta, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothRose, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothDarkGray, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothGray, 64));
+		//this.inventory.addItemStackToInventory(new ItemStack(Block.clothWhite, 64));
+		this.inventory.addItemStackToInventory(new ItemStack(Block.grass, 64));
 	}
 
 	public void updateRidden() {

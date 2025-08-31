@@ -13,7 +13,21 @@ public class BlockFire extends Block {
 		this.initializeBlock(Block.leaves.blockID, 30, 60);
 		this.initializeBlock(Block.bookshelf.blockID, 30, 20);
 		this.initializeBlock(Block.tnt.blockID, 15, 100);
-		this.initializeBlock(Block.cloth.blockID, 30, 60);
+		this.initializeBlock(Block.clothRed.blockID, 30, 60);
+		this.initializeBlock(Block.clothOrange.blockID, 30, 60);
+		this.initializeBlock(Block.clothYellow.blockID, 30, 60);
+		this.initializeBlock(Block.clothChartreuse.blockID, 30, 60);
+		this.initializeBlock(Block.clothGreen.blockID, 30, 60);
+		this.initializeBlock(Block.clothSpringGreen.blockID, 30, 60);
+		this.initializeBlock(Block.clothCyan.blockID, 30, 60);
+		this.initializeBlock(Block.clothCapri.blockID, 30, 60);
+		this.initializeBlock(Block.clothUltramarine.blockID, 30, 60);
+		this.initializeBlock(Block.clothViolet.blockID, 30, 60);
+		this.initializeBlock(Block.clothPurple.blockID, 30, 60);
+		this.initializeBlock(Block.clothMagenta.blockID, 30, 60);
+		this.initializeBlock(Block.clothRose.blockID, 30, 60);
+		this.initializeBlock(Block.clothDarkGray.blockID, 30, 60);
+		this.initializeBlock(Block.clothWhite.blockID, 30, 60);
 		this.setTickOnLoad(true);
 	}
 

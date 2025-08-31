@@ -34,7 +34,7 @@ public class Session {
 		registeredBlocksList.add(Block.sand);
 		registeredBlocksList.add(Block.gravel);
 		registeredBlocksList.add(Block.sponge);
-		registeredBlocksList.add(Block.cloth);
+		registeredBlocksList.add(Block.clothWhite);
 		registeredBlocksList.add(Block.oreCoal);
 		registeredBlocksList.add(Block.oreIron);
 		registeredBlocksList.add(Block.oreGold);

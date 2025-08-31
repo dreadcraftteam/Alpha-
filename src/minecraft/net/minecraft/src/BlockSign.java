@@ -26,31 +26,6 @@ public class BlockSign extends BlockContainer {
 	}
 
 	public void setBlockBoundsBasedOnState(IBlockAccess iBlockAccess1, int i2, int i3, int i4) {
-		if(!this.isFreestanding) {
-			int i5 = iBlockAccess1.getBlockMetadata(i2, i3, i4);
-			float f6 = 0.28125F;
-			float f7 = 0.78125F;
-			float f8 = 0.0F;
-			float f9 = 1.0F;
-			float f10 = 0.125F;
-			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-			if(i5 == 2) {
-				this.setBlockBounds(f8, f6, 1.0F - f10, f9, f7, 1.0F);
-			}
-
-			if(i5 == 3) {
-				this.setBlockBounds(f8, f6, 0.0F, f9, f7, f10);
-			}
-
-			if(i5 == 4) {
-				this.setBlockBounds(1.0F - f10, f6, f8, 1.0F, f7, f9);
-			}
-
-			if(i5 == 5) {
-				this.setBlockBounds(0.0F, f6, f8, f10, f7, f9);
-			}
-
-		}
 	}
 
 	public int getRenderType() {
