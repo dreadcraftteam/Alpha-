@@ -20,11 +20,9 @@ public class TexturePackDefault extends TexturePackBase {
                 TexturePackDefault.class.getResourceAsStream("/pack.png")
             );
         } catch (IOException e) {
-            System.out.println(
-                "failed to load default Tpack icon: " + e.getMessage()
-            );
+            System.out.println("Failed to load default texture pack icon: " + e.getMessage());
         } catch (IllegalArgumentException e) {
-            System.out.println("default texture pack icon not found;-;");
+            System.out.println("Default texture pack icon not found");
         }
     }
 

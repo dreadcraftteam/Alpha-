@@ -6505,3 +6505,8 @@ c	net/minecraft/client/MinecraftApplet	net/minecraft/client/MinecraftApplet
 	m	()V	startMainThread	a
 	m	()V	shutdown	b
 c	Start	Start
+c	net/minecraft/src/GuiTexturePacks	GuiTexturePacks
+c	net/minecraft/src/TexturePackBase	TexturePackBase
+c	net/minecraft/src/TexturePackCustom	TexturePackCustom
+c	net/minecraft/src/TexturePackList	TexturePackList
+c	net/minecraft/src/TexturePackDefault	TexturePackDefault

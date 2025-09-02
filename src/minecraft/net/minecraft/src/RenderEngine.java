@@ -42,20 +42,19 @@ public class RenderEngine {
         } else {
             try {
                 java.io.InputStream inputStream = null;
-                if (
-                    texturePackList != null &&
-                    texturePackList.selectedTexturePack != null
-                ) {
-                    inputStream =
-                        texturePackList.selectedTexturePack.getResourceAsStream(
-                            string1
-                        );
+
+                if (texturePackList != null && texturePackList.selectedTexturePack != null) {
+                    inputStream = texturePackList.selectedTexturePack.getResourceAsStream(string1);
                 }
 
                 if (inputStream == null) {
-                    inputStream = RenderEngine.class.getResourceAsStream(
-                        string1
-                    );
+                    if(string1.startsWith("##")) {
+                        inputStream = RenderEngine.class.getResourceAsStream(string1.substring(2));
+                    } else if(string1.startsWith("%%")) {
+                        inputStream = RenderEngine.class.getResourceAsStream(string1.substring(2));
+                    } else {
+                        inputStream = RenderEngine.class.getResourceAsStream(string1);
+                    }
                 }
 
                 if (inputStream == null) {
@@ -67,30 +66,31 @@ public class RenderEngine {
                 GLAllocation.generateTextureNames(this.singleIntBuffer);
                 int i4 = this.singleIntBuffer.get(0);
 
-                if (string1.startsWith("##")) {
-                    this.setupTexture(
-                        this.unwrapImageByColumns(ImageIO.read(inputStream)),
-                        i4
-                    );
-                } else if (string1.startsWith("%%")) {
+                BufferedImage image;
+                if(string1.startsWith("##")) {
+                    image = this.unwrapImageByColumns(ImageIO.read(inputStream));
+                    this.setupTexture(image, i4);
+                } else if(string1.startsWith("%%")) {
                     this.clampTexture = true;
-                    this.setupTexture(ImageIO.read(inputStream), i4);
+                    image = ImageIO.read(inputStream);
+                    this.setupTexture(image, i4);
                     this.clampTexture = false;
                 } else {
-                    this.setupTexture(ImageIO.read(inputStream), i4);
+                    image = ImageIO.read(inputStream);
+                    this.setupTexture(image, i4);
                 }
 
+                inputStream.close();
                 this.textureMap.put(string1, i4);
                 return i4;
             } catch (IOException iOException3) {
-                System.err.println("Failed to load texture: " + string1);
+                System.err.println("Error loading texture: " + string1);
                 iOException3.printStackTrace();
-                return 0;
+                return this.getTexture("/terrain.png");
             }
         }
     }
 
-    //посхалькоыыыыээээээ
     private BufferedImage unwrapImageByColumns(BufferedImage bufferedImage1) {
         int i2 = bufferedImage1.getWidth() / 16;
         BufferedImage bufferedImage3 = new BufferedImage(

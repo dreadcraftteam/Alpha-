@@ -12,20 +12,8 @@ import org.lwjgl.util.glu.GLU;
 public class GuiMainMenu extends GuiScreen {
 
     private static final Random rand = new Random();
-    String[] logoBlockLayers = new String[] {
-        " *   * * *   * *** *** *** *** *** ***",
-        " ** ** * **  * *   *   * * * * *    * ",
-        " * * * * * * * **  *   **  *** **   * ",
-        " *   * * *  ** *   *   * * * * *    * ",
-        " *   * * *   * *** *** * * * * *    * ",
-    };
-    String[] SecondlogoBlockLayers = new String[] {
-        " *** *   *** * * ***   *  ",
-        " * * *   * * * * * *   *  ",
-        " *** *   *** *** *** *****",
-        " * * *   *   * * * *   *  ",
-        " * * *** *   * * * *   *  ",
-    };
+    String[] logoBlockLayers = new String[] {" *   * * *   * *** *** *** *** *** ***", " ** ** * **  * *   *   * * * * *    * ", " * * * * * * * **  *   **  *** **   * ", " *   * * *  ** *   *   * * * * *    * ", " *   * * *   * *** *** * * * * *    * ",};
+    String[] SecondlogoBlockLayers = new String[] {" *** *   *** * * ***   *  ", " * * *   * * * * * *   *  ", " *** *   *** *** *** *****", " * * *   *   * * * *   *  ", " * * *** *   * * * *   *  ",};
     private LogoEffectRandomizer[][] logoEffects;
     private float updateCounter = 0.0F;
     private String splashString = "";
@@ -113,36 +101,16 @@ public class GuiMainMenu extends GuiScreen {
         Tessellator tessellator4 = Tessellator.instance;
         this.drawLogo(f3);
         this.drawSecondLogo(f3);
-        GL11.glBindTexture(
-            GL11.GL_TEXTURE_2D,
-            this.mc.renderEngine.getTexture("/gui/logo.png")
-        );
+        GL11.glBindTexture(GL11.GL_TEXTURE_2D, this.mc.renderEngine.getTexture("/gui/logo.png"));
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         tessellator4.setColorOpaque_I(0xFFFFFF);
         GL11.glPushMatrix();
         GL11.glTranslatef((float) (this.width / 2 + 90), 70.0F, 0.0F);
         GL11.glRotatef(-20.0F, 0.0F, 0.0F, 1.0F);
-        float f5 =
-            1.8F -
-            MathHelper.abs(
-                MathHelper.sin(
-                    ((float) (System.currentTimeMillis() % 1000L) / 1000.0F) *
-                    (float) Math.PI *
-                    2.0F
-                ) *
-                0.1F
-            );
-        f5 =
-            (f5 * 100.0F) /
-            (float) (this.fontRenderer.getStringWidth(this.splashString) + 32);
+        float f5 = 1.8F - MathHelper.abs(MathHelper.sin(((float) (System.currentTimeMillis() % 1000L) / 1000.0F) * (float) Math.PI * 2.0F) * 0.1F);
+        f5 = (f5 * 100.0F) / (float) (this.fontRenderer.getStringWidth(this.splashString) + 32);
         GL11.glScalef(f5, f5, f5);
-        this.drawCenteredString(
-            this.fontRenderer,
-            this.splashString,
-            0,
-            -8,
-            16776960
-        );
+        this.drawCenteredString(this.fontRenderer, this.splashString, 0, -8, 16776960);
         GL11.glPopMatrix();
         super.drawScreen(i1, i2, f3);
     }
@@ -150,16 +118,11 @@ public class GuiMainMenu extends GuiScreen {
     private void drawLogo(float renderPartialTick) {
         int i3;
         if (this.logoEffects == null) {
-            this.logoEffects =
-                new LogoEffectRandomizer[this.logoBlockLayers[0].length()][this.logoBlockLayers.length];
+            this.logoEffects = new LogoEffectRandomizer[this.logoBlockLayers[0].length()][this.logoBlockLayers.length];
 
             for (int i2 = 0; i2 < this.logoEffects.length; ++i2) {
                 for (i3 = 0; i3 < this.logoEffects[i2].length; ++i3) {
-                    this.logoEffects[i2][i3] = new LogoEffectRandomizer(
-                        this,
-                        i2,
-                        i3
-                    );
+                    this.logoEffects[i2][i3] = new LogoEffectRandomizer(this, i2, i3);
                 }
             }
         }
@@ -186,10 +149,7 @@ public class GuiMainMenu extends GuiScreen {
                 GL11.glTranslatef(0.0F, -0.4F, 0.0F);
                 GL11.glScalef(0.98F, 1.0F, 1.0F);
                 GL11.glEnable(GL11.GL_BLEND);
-                GL11.glBlendFunc(
-                    GL11.GL_SRC_ALPHA,
-                    GL11.GL_ONE_MINUS_SRC_ALPHA
-                );
+                GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
             }
 
             if (i4 == 1) {
@@ -218,12 +178,8 @@ public class GuiMainMenu extends GuiScreen {
                     char c8 = this.logoBlockLayers[i6].charAt(i7);
                     if (c8 != 32) {
                         GL11.glPushMatrix();
-                        LogoEffectRandomizer logoEffectRandomizer9 =
-                            this.logoEffects[i7][i6];
-                        float f10 = (float) (logoEffectRandomizer9.prevHeight +
-                            (logoEffectRandomizer9.height -
-                                logoEffectRandomizer9.prevHeight) *
-                            (double) renderPartialTick);
+                        LogoEffectRandomizer logoEffectRandomizer9 = this.logoEffects[i7][i6];
+                        float f10 = (float) (logoEffectRandomizer9.prevHeight + (logoEffectRandomizer9.height - logoEffectRandomizer9.prevHeight) * (double) renderPartialTick);
                         float f11 = 1.0F;
                         float f12 = 1.0F;
                         float f13 = 0.0F;
@@ -257,16 +213,11 @@ public class GuiMainMenu extends GuiScreen {
     private void drawSecondLogo(float f1) {
         int i2;
         if (this.logoEffects == null) {
-            this.logoEffects =
-                new LogoEffectRandomizer[this.SecondlogoBlockLayers[0].length()][this.SecondlogoBlockLayers.length];
+            this.logoEffects = new LogoEffectRandomizer[this.SecondlogoBlockLayers[0].length()][this.SecondlogoBlockLayers.length];
 
             for (int i3 = 0; i3 < this.logoEffects.length; ++i3) {
                 for (i2 = 0; i2 < this.logoEffects[i3].length; ++i2) {
-                    this.logoEffects[i3][i2] = new LogoEffectRandomizer(
-                        this,
-                        i3,
-                        i2
-                    );
+                    this.logoEffects[i3][i2] = new LogoEffectRandomizer(this, i3, i2);
                 }
             }
         }
@@ -293,10 +244,7 @@ public class GuiMainMenu extends GuiScreen {
                 GL11.glTranslatef(0.0F, -0.4F, 0.0F);
                 GL11.glScalef(0.98F, 1.0F, 1.0F);
                 GL11.glEnable(GL11.GL_BLEND);
-                GL11.glBlendFunc(
-                    GL11.GL_SRC_ALPHA,
-                    GL11.GL_ONE_MINUS_SRC_ALPHA
-                );
+                GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
             }
 
             if (i4 == 1) {
@@ -339,12 +287,8 @@ public class GuiMainMenu extends GuiScreen {
                     char c8 = this.SecondlogoBlockLayers[i6].charAt(i7);
                     if (c8 != 32) {
                         GL11.glPushMatrix();
-                        LogoEffectRandomizer logoEffectRandomizer9 =
-                            this.logoEffects[i7][i6];
-                        float f10 = (float) (logoEffectRandomizer9.prevHeight +
-                            (logoEffectRandomizer9.height -
-                                logoEffectRandomizer9.prevHeight) *
-                            (double) f1);
+                        LogoEffectRandomizer logoEffectRandomizer9 = this.logoEffects[i7][i6];
+                        float f10 = (float) (logoEffectRandomizer9.prevHeight + (logoEffectRandomizer9.height - logoEffectRandomizer9.prevHeight) * (double) f1);
                         float f11 = 1.0F;
                         float f12 = 1.0F;
                         float f13 = 0.0F;
