@@ -20,11 +20,11 @@ public class GuiMainMenu extends GuiScreen {
         " *   * * *   * *** *** * * * * *    * ",
     };
     String[] SecondlogoBlockLayers = new String[] {
-        "*** *   *** * * ***   *  ",
-        "* * *   * * * * * *   *  ",
-        "*** *   *** *** *** *****",
-        "* * *   *   * * * *   *  ",
-        "* * *** *   * * * *   *  ",
+        " *** *   *** * * ***   *  ",
+        " * * *   * * * * * *   *  ",
+        " *** *   *** *** *** *****",
+        " * * *   *   * * * *   *  ",
+        " * * *** *   * * * *   *  ",
     };
     private LogoEffectRandomizer[][] logoEffects;
     private float updateCounter = 0.0F;
@@ -80,38 +80,10 @@ public class GuiMainMenu extends GuiScreen {
         }
 
         this.controlList.clear();
-        this.controlList.add(
-            new GuiButton(
-                1,
-                this.width / 2 - 100,
-                this.height / 4 + 48,
-                "Singleplayer"
-            )
-        );
-        this.controlList.add(
-            new GuiButton(
-                2,
-                this.width / 2 - 100,
-                this.height / 4 + 72,
-                "Multiplayer"
-            )
-        );
-        this.controlList.add(
-            new GuiButton(
-                3,
-                this.width / 2 - 100,
-                this.height / 4 + 96,
-                "Texture Packs"
-            )
-        );
-        this.controlList.add(
-            new GuiButton(
-                0,
-                this.width / 2 - 100,
-                this.height / 4 + 120 + 12,
-                "Options..."
-            )
-        );
+        this.controlList.add(new GuiButton(1, this.width / 2 - 100, this.height / 4 + 48, "Singleplayer"));
+        this.controlList.add(new GuiButton(2, this.width / 2 - 100, this.height / 4 + 72, "Multiplayer"));
+        this.controlList.add(new GuiButton(3, this.width / 2 - 100, this.height / 4 + 96, "Texture Packs"));
+        this.controlList.add(new GuiButton(0, this.width / 2 - 100, this.height / 4 + 120 + 12, "Options..."));
         ((GuiButton) this.controlList.get(1)).enabled = false;
         ((GuiButton) this.controlList.get(2)).enabled = true;
         if (this.mc.session == null) {
@@ -195,23 +167,10 @@ public class GuiMainMenu extends GuiScreen {
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPushMatrix();
         GL11.glLoadIdentity();
-        ScaledResolution scaledResolution14 = new ScaledResolution(
-            this.mc.displayWidth,
-            this.mc.displayHeight
-        );
+        ScaledResolution scaledResolution14 = new ScaledResolution(this.mc.displayWidth, this.mc.displayHeight);
         i3 = 120 * scaledResolution14.scaleFactor;
-        GLU.gluPerspective(
-            70.0F,
-            (float) this.mc.displayWidth / (float) i3,
-            0.05F,
-            100.0F
-        );
-        GL11.glViewport(
-            0,
-            this.mc.displayHeight - i3,
-            this.mc.displayWidth,
-            i3
-        );
+        GLU.gluPerspective(70.0F, (float) this.mc.displayWidth / (float) i3, 0.05F, 100.0F);
+        GL11.glViewport(0, this.mc.displayHeight - i3, this.mc.displayWidth, i3);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
         GL11.glPushMatrix();
         GL11.glLoadIdentity();
@@ -246,20 +205,10 @@ public class GuiMainMenu extends GuiScreen {
             GL11.glScalef(1.0F, -1.0F, 1.0F);
             GL11.glRotatef(15.0F, 1.0F, 0.0F, 0.0F);
             GL11.glScalef(0.89F, 1.0F, 0.4F);
-            GL11.glTranslatef(
-                (float) (-this.logoBlockLayers[0].length()) * 0.5F,
-                (float) (-this.logoBlockLayers.length) * 0.5F,
-                0.0F
-            );
-            GL11.glBindTexture(
-                GL11.GL_TEXTURE_2D,
-                this.mc.renderEngine.getTexture("/terrain.png")
-            );
+            GL11.glTranslatef((float) (-this.logoBlockLayers[0].length()) * 0.5F, (float) (-this.logoBlockLayers.length) * 0.5F, 0.0F);
+            GL11.glBindTexture(GL11.GL_TEXTURE_2D, this.mc.renderEngine.getTexture("/terrain.png"));
             if (i4 == 0) {
-                GL11.glBindTexture(
-                    GL11.GL_TEXTURE_2D,
-                    this.mc.renderEngine.getTexture("/title/black.png")
-                );
+                GL11.glBindTexture(GL11.GL_TEXTURE_2D, this.mc.renderEngine.getTexture("/title/black.png"));
             }
 
             RenderBlocks renderBlocks5 = new RenderBlocks();
@@ -325,23 +274,10 @@ public class GuiMainMenu extends GuiScreen {
         GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glPushMatrix();
         GL11.glLoadIdentity();
-        ScaledResolution scaledResolution14 = new ScaledResolution(
-            this.mc.displayWidth,
-            this.mc.displayHeight
-        );
+        ScaledResolution scaledResolution14 = new ScaledResolution(this.mc.displayWidth, this.mc.displayHeight);
         i2 = 120 * scaledResolution14.scaleFactor;
-        GLU.gluPerspective(
-            70.0F,
-            (float) this.mc.displayWidth / (float) i2,
-            0.05F,
-            100.0F
-        );
-        GL11.glViewport(
-            0,
-            this.mc.displayHeight - i2,
-            this.mc.displayWidth,
-            i2
-        );
+        GLU.gluPerspective(70.0F, (float) this.mc.displayWidth / (float) i2, 0.05F, 100.0F);
+        GL11.glViewport(0, this.mc.displayHeight - i2, this.mc.displayWidth, i2);
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
         GL11.glPushMatrix();
         GL11.glLoadIdentity();

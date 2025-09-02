@@ -36,35 +36,16 @@ public class GameSettings {
     public boolean anaglyph = false;
     public boolean limitFramerate = false;
     public boolean fancyGraphics = true;
-    public KeyBinding keyBindForward = new KeyBinding(
-        "Forward",
-        Keyboard.KEY_W
-    );
+    public KeyBinding keyBindForward = new KeyBinding("Forward", Keyboard.KEY_W);
     public KeyBinding keyBindLeft = new KeyBinding("Left", Keyboard.KEY_A);
     public KeyBinding keyBindBack = new KeyBinding("Back", Keyboard.KEY_S);
     public KeyBinding keyBindRight = new KeyBinding("Right", Keyboard.KEY_D);
     public KeyBinding keyBindJump = new KeyBinding("Jump", Keyboard.KEY_SPACE);
-    public KeyBinding keyBindInventory = new KeyBinding(
-        "Inventory",
-        Keyboard.KEY_E
-    );
+    public KeyBinding keyBindInventory = new KeyBinding("Inventory", Keyboard.KEY_E);
     public KeyBinding keyBindDrop = new KeyBinding("Drop", Keyboard.KEY_Q);
     public KeyBinding keyBindChat = new KeyBinding("Chat", Keyboard.KEY_T);
-    public KeyBinding keyBindToggleFog = new KeyBinding(
-        "Toggle fog",
-        Keyboard.KEY_F
-    );
-    public KeyBinding[] keyBindings = new KeyBinding[] {
-        this.keyBindForward,
-        this.keyBindLeft,
-        this.keyBindBack,
-        this.keyBindRight,
-        this.keyBindJump,
-        this.keyBindDrop,
-        this.keyBindInventory,
-        this.keyBindChat,
-        this.keyBindToggleFog,
-    };
+    public KeyBinding keyBindToggleFog = new KeyBinding("Toggle fog", Keyboard.KEY_F);
+    public KeyBinding[] keyBindings = new KeyBinding[] {this.keyBindForward, this.keyBindLeft, this.keyBindBack, this.keyBindRight, this.keyBindJump, this.keyBindDrop, this.keyBindInventory, this.keyBindChat, this.keyBindToggleFog,};
     protected Minecraft mc;
     private File optionsFile;
     public int numberOfOptions = 10;
